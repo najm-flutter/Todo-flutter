@@ -16,7 +16,7 @@ class ButtonAddAndDone extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             boxShadow: [
-              BoxShadow(color: AppColors.iconAddBgGrandentTop.withOpacity(0.3), blurRadius: 6, offset: Offset(0, 3))
+              BoxShadow(color: AppColors.iconAddBgGrandentTop.withOpacity(0.3), blurRadius: 6, offset: const Offset(0, 3))
             ],
             gradient: LinearGradient(
                 begin: Alignment.topRight,

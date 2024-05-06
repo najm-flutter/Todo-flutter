@@ -13,7 +13,7 @@ class TodoRepoImp implements TodoRepo {
   @override
   Future<Either<Failur, List<TodoEnti>>> getDoneTodo() async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(milliseconds: 1000));
       List<TodoModel> data = await localDataSource.getDoneTodo();
       return right(data);
     } on EmpityException {
@@ -24,7 +24,7 @@ class TodoRepoImp implements TodoRepo {
   @override
   Future<Either<Failur, List<TodoEnti>>> getNotDoneTodo() async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(milliseconds: 1000));
       List<TodoModel> data = await localDataSource.getNotDoneTodo();
       return right(data);
     } on EmpityException {
@@ -33,11 +33,9 @@ class TodoRepoImp implements TodoRepo {
   }
 
   @override
-  Future<Either<Failur, Unit>> deleteTodo(int idTodo) async {
+  Future<Either<Failur, Unit>> updateTodo(int idTodo) async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
-
-      await localDataSource.delteTodo(idTodo);
+      await localDataSource.updateTodo(idTodo);
       return right(unit);
     } on SqlException {
       return left(SqlFailur());
@@ -47,7 +45,6 @@ class TodoRepoImp implements TodoRepo {
   @override
   Future<Either<Failur, Unit>> insertTodo(TodoEnti todoEnti) async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
       await localDataSource.insertTodo(TodoModel(
           id: todoEnti.id,
           iconId: todoEnti.iconId,

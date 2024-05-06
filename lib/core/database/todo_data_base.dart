@@ -25,8 +25,8 @@ class TodoDataBase {
   Future<Database> initDataBase() async {
     String pathDataBase = await getDatabasesPath();
     String pathDataBaseName = join(pathDataBase, 'todo.db');
-    Database mydb = await openDatabase(pathDataBaseName, version: 1,onCreate: _onCraete);
-    return mydb; 
+    Database mydb = await openDatabase(pathDataBaseName, version: 1, onCreate: _onCraete);
+    return mydb;
   }
 
   _onCraete(Database database, int version) {
@@ -44,27 +44,27 @@ class TodoDataBase {
 
   Future<int> insertTodo(TodoModel todoModel) async {
     Database? database = await db;
-    int status = await database!.insert("todo", todoModel.toJson());
+    int status = await database!.insert(todo, todoModel.toJson());
     return status;
   }
 
-  Future<int> deleteTodo(int idTodo) async {
+  Future<int> updateTodo(int idTodo) async {
     Database? database = await db;
-    int status = await database!.delete("todo", where: '$id = ?', whereArgs: [idTodo]);
+    int status = await database!.rawUpdate('UPDATE $todo SET $isDone = ? WHERE $id = ?', [1, idTodo]);
     return status;
   }
 
   Future<List> getDoneTodo() async {
     Database? database = await db;
-    List status = await database!
-        .query("todo", columns: [id, iconId, isDone, title, description, time], where: '$isDone = ?', whereArgs: [1]);
+    List status = await database!.rawQuery('SELECT * FROM $todo WHERE $isDone = 1  ORDER BY $id DESC');
     return status;
   }
 
   Future<List> getNotDoneTodo() async {
     Database? database = await db;
-    List status = await database!
-        .query("todo", columns: [id, iconId, isDone, title, description, time], where: '$isDone = ?', whereArgs: [0]);
+    // List status = await database!
+    //     .query(todo, columns: [id, iconId, isDone, title, description, time], where: '$isDone = ?', whereArgs: [0]);
+    List status = await database!.rawQuery('SELECT * FROM $todo WHERE $isDone = 0  ORDER BY $id DESC');
     return status;
   }
 }

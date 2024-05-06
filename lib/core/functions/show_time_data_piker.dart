@@ -7,10 +7,10 @@ import 'package:todo/core/constant/app_colors.dart';
       context: context,
       builder: (context) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Dialog(
               backgroundColor: AppColors.white,
-              insetPadding: EdgeInsets.all(0),
+              insetPadding: const EdgeInsets.all(0),
               child: SizedBox(
                 height: 200,
                 child: CupertinoDatePicker(

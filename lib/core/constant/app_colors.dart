@@ -8,6 +8,7 @@ class AppColors {
   static Color iconDoneBgGrandentTop =  const Color(0xffFE1E9A);
   static Color iconDoneBgGrandentDown =   const Color(0xff254DDE);
   static Color iconCancelBgGrandentDown =   const Color(0xff88889F);
+  static Color gray =   const Color(0xffDFDFDF);
   static Color filterColor = const Color(0xffCAEBFE) ;
   static Color orange = const Color(0xffFEA64C) ;
   static Color white = const Color(0xFFFFFFFF) ;

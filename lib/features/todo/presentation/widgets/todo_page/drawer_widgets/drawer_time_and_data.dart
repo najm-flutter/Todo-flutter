@@ -12,6 +12,7 @@ class DrawerTimeAndData extends StatelessWidget {
   Widget build(BuildContext context) {
     return TitleDrawerWidget(
         title: title,
+        // ignore: avoid_unnecessary_containers
         childWidget: Container(
           child: InkWell(
             splashColor: AppColors.white.withOpacity(0),
@@ -20,7 +21,7 @@ class DrawerTimeAndData extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text(timeOrData), Icon(Icons.arrow_drop_down)],
+                  children: [Text(timeOrData), const Icon(Icons.arrow_drop_down)],
                 ),
                 Divider(
                   thickness: 1,

@@ -41,7 +41,7 @@ class BgWidget extends StatelessWidget {
             width: double.maxFinite,
             decoration: BoxDecoration(
                 gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-              const Color(0xffffffff),
+              AppColors.white,
               AppColors.filterColor.withOpacity(0.0),
             ])),
           );

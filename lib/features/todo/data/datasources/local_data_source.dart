@@ -7,7 +7,7 @@ abstract class LocalDataSource {
   Future<List<TodoModel>> getDoneTodo();
   Future<List<TodoModel>> getNotDoneTodo();
   Future<Unit> insertTodo(TodoModel todoModel);
-  Future<Unit> delteTodo(int idTodo);
+  Future<Unit> updateTodo(int idTodo);
 }
 
 class LocalDataSourceImp implements LocalDataSource {
@@ -15,8 +15,8 @@ class LocalDataSourceImp implements LocalDataSource {
 
   LocalDataSourceImp({required this.todoDataBase});
   @override
-  Future<Unit> delteTodo(int idTodo) async {
-    int status = await todoDataBase.deleteTodo(idTodo) ;
+  Future<Unit> updateTodo(int idTodo) async {
+    int status = await todoDataBase.updateTodo(idTodo) ;
     if (status == 1) {
       return Future.value(unit) ;
     } else {

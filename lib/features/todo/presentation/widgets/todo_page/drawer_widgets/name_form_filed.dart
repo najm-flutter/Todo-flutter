@@ -15,10 +15,10 @@ class NameFormField extends StatelessWidget {
         cursorHeight: 20,
         cursorColor: AppColors.bgGrandentTop.withOpacity(0.4),
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(top: 3, bottom: 7),
+            contentPadding: const EdgeInsets.only(top: 3, bottom: 7),
             isDense: true,
             hintText: 'Add name for you to do',
-            hintStyle: TextStyle(fontSize: 12),
+            hintStyle: const TextStyle(fontSize: 12),
             enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColors.bgGrandentDown.withOpacity(0.3), width: 1)),
             focusedBorder: UnderlineInputBorder(

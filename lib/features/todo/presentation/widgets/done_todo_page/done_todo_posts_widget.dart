@@ -3,16 +3,13 @@ import 'package:jiffy/jiffy.dart';
 import 'package:todo/core/constant/app_colors.dart';
 import 'package:todo/features/todo/data/datasources/static/colors_status_image.dart';
 import 'package:todo/features/todo/domain/entities/todo_enti.dart';
-import 'package:todo/features/todo/presentation/widgets/todo_page/todo_posts_checkout.dart';
+import 'package:uicons/uicons.dart';
 
-class TodoPostWidget extends StatelessWidget {
-  const TodoPostWidget(
-      {super.key, this.onTap, required this.showNumber, this.onTapCheckOut, required this.todoEnti, required this.ids});
+class DoneTodoPostWidget extends StatelessWidget {
+  const DoneTodoPostWidget({super.key, this.onTap, required this.todoEnti});
   final TodoEnti todoEnti;
-  final int showNumber;
+
   final void Function()? onTap;
-  final void Function()? onTapCheckOut;
-  final List<int> ids;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,18 +31,8 @@ class TodoPostWidget extends StatelessWidget {
                 Container(margin: const EdgeInsets.only(left: 7, right: 12), child: _imageTodo(todoEnti.iconId)),
               ],
             ),
-            _titleTodo(todoEnti.title , context),
-            AnimatedCrossFade(
-                firstChild: Container(
-                    margin: const EdgeInsets.only(right: 7, left: 12),
-                    child: _time(Jiffy.parse(todoEnti.time).MMMd, Jiffy.parse(todoEnti.time).jm, context)),
-                secondChild: TodoPostsCheckout(
-                  onTap: onTapCheckOut,
-                  visibleIconCheck: ids.contains(todoEnti.id),
-                ),
-                crossFadeState: showNumber == 0 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-                duration: Durations.medium1)
-
+            _titleTodo(todoEnti.title),
+            _time(Jiffy.parse(todoEnti.time).MMMd, Jiffy.parse(todoEnti.time).jm, context)
           ],
         ));
   }
@@ -54,8 +41,10 @@ class TodoPostWidget extends StatelessWidget {
     return SizedBox(
       height: 7,
       width: 7,
-      child: CircleAvatar(
-        backgroundColor: StaticData.colorsStatusImage[id].colorStatus,
+      child: Icon(
+        UIcons.solidRounded.checkbox,
+        size: 9,
+        color: StaticData.colorsStatusImage[id].colorStatus,
       ),
     );
   }
@@ -70,13 +59,14 @@ class TodoPostWidget extends StatelessWidget {
     );
   }
 
-  Widget _titleTodo(String title , BuildContext context) {
+  Widget _titleTodo(String title) {
     return Expanded(
       child: InkWell(
         onTap: onTap,
         child: Text(
           title,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: const TextStyle(
+              color: Color(0xff181743), fontFamily: "lato", fontSize: 14, overflow: TextOverflow.ellipsis),
           maxLines: 1,
         ),
       ),

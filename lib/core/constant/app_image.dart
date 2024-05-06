@@ -9,4 +9,5 @@ class AppImages {
   static String other = '$imageRoute/other.png' ; 
   static String sport = '$imageRoute/sport.png' ; 
   static String  main = '$imageRoute/c.png' ; 
+  static String  logo = '$imageRoute/logo.png' ; 
 }

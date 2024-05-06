@@ -18,9 +18,9 @@ class GetDoneTodoEvent extends TodoEvent {}
 
 class GetNotDoneTodoEvent extends TodoEvent {}
 
-class DeleteTodoEvent extends TodoEvent {
-  final int idTodo;
-  const DeleteTodoEvent({required this.idTodo});
+class UpdateTodoEvent extends TodoEvent {
+  final List<int> idsTodo;
+  const UpdateTodoEvent({required this.idsTodo});
   @override
-  List<Object> get props => [idTodo];
+  List<Object> get props => [idsTodo];
 }

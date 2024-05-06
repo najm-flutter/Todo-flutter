@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:todo/core/error/failur.dart';
 import 'package:todo/features/todo/domain/entities/todo_enti.dart';
-import 'package:todo/features/todo/domain/usecases/delete_todo_usecase.dart';
+import 'package:todo/features/todo/domain/usecases/update_todo_usecase.dart';
 import 'package:todo/features/todo/domain/usecases/get_done_todo.dart';
 import 'package:todo/features/todo/domain/usecases/get_not_done_todo.dart';
 import 'package:todo/features/todo/domain/usecases/insert_todo_usecase.dart';
@@ -15,15 +15,14 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   final GetDoneTodoUsecase getDoneTodoUsecase;
   final GetNotDoneTodoUsecase getNotDoneTodoUsecase;
   final InsertTodoUsecase insertTodoUsecase;
-  final DeleteTodoUsecase deleteTodoUsecase;
+  final UpdateTodoUsecase updateTodoUsecase;
   TodoBloc(
       {required this.getDoneTodoUsecase,
       required this.getNotDoneTodoUsecase,
       required this.insertTodoUsecase,
-      required this.deleteTodoUsecase})
+      required this.updateTodoUsecase})
       : super(TodoInitial()) {
-    on<TodoEvent>((event, emit) {
-    });
+    on<TodoEvent>((event, emit) {});
     //
     on<GetDoneTodoEvent>((event, emit) async {
       emit(LoadingTodoState());
@@ -41,13 +40,18 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
       emit(LoadingTodoState());
       var failurOrDone = await insertTodoUsecase.call(event.todoEnti);
       emit(_insertAndDelete(failurOrDone));
-      add(GetNotDoneTodoEvent()) ;
+      add(GetNotDoneTodoEvent());
     });
     //
-    on<DeleteTodoEvent>((event, emit) async {
+    on<UpdateTodoEvent>((event, emit) async {
       emit(LoadingTodoState());
-      var failurOrDone = await deleteTodoUsecase.call(event.idTodo);
+
+      late Either<Failur, Unit> failurOrDone;
+      for (var i = 0; i < event.idsTodo.length; i++) {
+        failurOrDone = await updateTodoUsecase.call(event.idsTodo[i]);
+      }
       emit(_insertAndDelete(failurOrDone));
+      add(GetNotDoneTodoEvent());
     });
   }
   ////////////

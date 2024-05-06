@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:todo/core/constant/app_strings.dart';
 import 'package:todo/core/functions/show_time_data_piker.dart';
 import 'package:todo/features/todo/domain/entities/todo_enti.dart';
 import 'package:todo/features/todo/presentation/bloc/bloc/todo_bloc.dart';
@@ -35,14 +36,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //? Tittle Drawer
             Text(
-              "NEW TASK",
+              AppStrings.newTask,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            //!
+            //? List Icons For choose todo Type
             _space30(),
             TitleDrawerWidget(
-                title: "Icon",
+                title: AppStrings.icon,
                 childWidget: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -59,16 +61,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 )),
             //!
             _space18(),
-            TitleDrawerWidget(title: "Name", childWidget: NameFormField(textEditingController: nameTextCo)),
+            TitleDrawerWidget(title: AppStrings.name, childWidget: NameFormField(textEditingController: nameTextCo)),
             //!
             _space30(),
 
             TitleDrawerWidget(
-                title: "Description", childWidget: DescriptionFormField(textEditingController: descriptionTextCo)),
+                title: AppStrings.description,
+                childWidget: DescriptionFormField(textEditingController: descriptionTextCo)),
             //!
             _space30(),
             DrawerTimeAndData(
-                title: "Data",
+                title: AppStrings.data,
                 timeOrData: Jiffy.parse(initialDate.toString()).format(pattern: 'd - MMMM - yyyy'),
                 onTapIcon: () => showTimeDataPiker(
                       context: context,
@@ -81,7 +84,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             //!
             _space30(),
             DrawerTimeAndData(
-                title: "Time",
+                title: AppStrings.time,
                 timeOrData: Jiffy.parse(initialTime.toString()).jm,
                 onTapIcon: () => showTimeDataPiker(
                       context: context,
@@ -94,7 +97,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             //!
             const Spacer(),
             ButtonAddAndDone(
-              title: "Add",
+              title: AppStrings.add,
               onTapAdd: () {
                 if (nameTextCo.text.isNotEmpty || descriptionTextCo.text.isNotEmpty) {
                   BlocProvider.of<TodoBloc>(context).add(AddTodoEvent(
@@ -105,6 +108,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                           title: nameTextCo.text,
                           description: descriptionTextCo.text,
                           time:
+                              //!for Marge Date And Time like [1997-09-23 11:18:12.946621] And use it in [TodoPostsWidget]
                               "${Jiffy.parse(initialDate.toString()).format(pattern: 'yyyy-MM-dd')} ${Jiffy.parse(initialDate.toString()).format(pattern: 'HH:mm:ss.SSS')}")));
                   widget.scaffoldState.currentState!.closeEndDrawer();
                 }
@@ -126,5 +130,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     return const SizedBox(
       height: 30,
     );
+  }
+
+  @override
+  void dispose() {
+    nameTextCo.dispose();
+    descriptionTextCo.dispose();
+    super.dispose();
   }
 }

@@ -6,5 +6,5 @@ abstract class TodoRepo {
   Future<Either<Failur , List<TodoEnti>>> getDoneTodo() ;  
   Future<Either<Failur , List<TodoEnti>>> getNotDoneTodo() ;  
   Future<Either<Failur , Unit>> insertTodo(TodoEnti todoEnti) ;  
-  Future<Either<Failur , Unit>> deleteTodo(int idTodo) ;  
+  Future<Either<Failur , Unit>> updateTodo(int idTodo) ;  
 }
