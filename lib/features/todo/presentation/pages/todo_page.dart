@@ -110,7 +110,7 @@ class _TodoPageState extends State<TodoPage> {
           Expanded(
               child: Center(
             child: CircularProgressIndicator(
-              color: AppColors.bgGrandentTop.withOpacity(0.3),
+              color: AppColors.bgGrandentTop.withValues(alpha:0.3),
             ),
           ));
           //!

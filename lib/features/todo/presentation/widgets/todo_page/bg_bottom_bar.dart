@@ -14,7 +14,7 @@ final Widget widget ;
           width: double.maxFinite,
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-            const Color(0xffCAEBFE).withOpacity(0),
+            const Color(0xffCAEBFE).withValues(alpha:0),
             const Color(0xffffffff),
           ])),
           child: widget ,
