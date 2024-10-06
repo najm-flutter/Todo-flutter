@@ -17,10 +17,10 @@ class DoneTodoPostWidget extends StatelessWidget {
         width: double.maxFinite,
         height: 52,
         decoration: BoxDecoration(
-            color: AppColors.white.withOpacity(0.9),
+            color: AppColors.white.withValues(alpha:0.9),
             borderRadius: BorderRadius.circular(6),
             boxShadow: [
-              BoxShadow(color: AppColors.black.withOpacity(0.06), blurRadius: 6, offset: const Offset(0, 1))
+              BoxShadow(color: AppColors.black.withValues(alpha:0.6), blurRadius: 6, offset: const Offset(0, 1))
             ]),
         child: Row(
           children: [

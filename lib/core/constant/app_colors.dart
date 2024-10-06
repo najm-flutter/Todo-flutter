@@ -13,9 +13,10 @@ class AppColors {
   static Color orange = const Color(0xffFEA64C) ;
   static Color white = const Color(0xFFFFFFFF) ;
   static Color black = const Color(0xFF000000) ;
-  static Color shop = const Color(0xFFFEA64C).withOpacity(0.3) ;
-  static Color sport = const Color(0xFFFE1E9A).withOpacity(0.3) ;
-  static Color location = const Color(0xFF254DDE).withOpacity(0.3) ;
-  static Color health= const Color(0xFFFE1E9A).withOpacity(0.3) ;
-  static Color other = const Color(0xFF181743).withOpacity(0.3) ;
+static Color shop = const Color(0xFFFEA64C).withValues(alpha: 0.3);
+static Color sport = const Color(0xFFFE1E9A).withValues(alpha: 0.3);
+static Color location = const Color(0xFF254DDE).withValues(alpha: 0.3);
+static Color health = const Color(0xFFFE1E9A).withValues(alpha: 0.3);
+static Color other = const Color(0xFF181743).withValues(alpha: 0.3);
+
 }

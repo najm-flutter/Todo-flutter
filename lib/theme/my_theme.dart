@@ -8,12 +8,12 @@ ThemeData myTheme() {
           titleLarge: TextStyle(fontSize: 20, color: AppColors.bgGrandentTop, fontFamily: "baloo"),
           titleSmall: TextStyle(fontSize: 16, color: AppColors.bgGrandentTop, fontWeight: FontWeight.bold),
           labelLarge:
-              TextStyle(fontSize: 12, color: AppColors.bgGrandentTop.withOpacity(0.2), fontWeight: FontWeight.bold),
+              TextStyle(fontSize: 12, color: AppColors.bgGrandentTop.withValues(alpha: 0.2), fontWeight: FontWeight.bold),
           labelMedium:
-              TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: AppColors.bgGrandentTop.withOpacity(0.8)),
+              TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: AppColors.bgGrandentTop.withValues(alpha: 0.8)),
           // ignore: prefer_const_constructors
           bodySmall: TextStyle(fontSize: 12, color: const Color(0xff95989A)),
           bodyMedium: TextStyle(
               color: AppColors.bgGrandentTop, fontFamily: "lato", fontSize: 14, overflow: TextOverflow.ellipsis),
-          labelSmall: TextStyle(fontSize: 10, color: AppColors.bgGrandentTop.withOpacity(0.6))));
+          labelSmall: TextStyle(fontSize: 10, color: AppColors.bgGrandentTop.withValues(alpha: 0.6))));
 }

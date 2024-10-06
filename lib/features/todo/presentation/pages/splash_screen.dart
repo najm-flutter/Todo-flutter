@@ -11,14 +11,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Future<void> goToHome () async{
-    await Future.delayed(const Duration(seconds: 3) , ()=> Navigator.of(context).pushNamedAndRemoveUntil(AppRoute.todo, (route) => false));
+  Future<void> goToHome() async {
+    await Future.delayed(const Duration(seconds: 3));
+    if (mounted) {
+      Navigator.of(context).pushNamedAndRemoveUntil(AppRoute.todo, (route) => false);
+    }
   }
+
   @override
   void initState() {
-    goToHome();
     super.initState();
+    goToHome();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(

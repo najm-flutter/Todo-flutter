@@ -17,7 +17,7 @@ class IconBottomGradent extends StatelessWidget {
         width: 46,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
-            boxShadow: [BoxShadow(color: topGrandient.withOpacity(0.3), blurRadius: 6, offset: const Offset(0, 3))],
+            boxShadow: [BoxShadow(color: topGrandient.withValues(alpha: 0.3), blurRadius: 6, offset: const Offset(0, 3))],
             gradient: LinearGradient(
                 begin: Alignment.topRight, end: Alignment.bottomLeft, colors: [topGrandient, bottomGrandient])),
         child: Center(

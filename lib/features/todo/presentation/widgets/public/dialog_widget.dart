@@ -13,7 +13,7 @@ class DialogMoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: const Color(0xFF000000).withOpacity(0),
+      backgroundColor: const Color(0xFF000000).withValues(alpha:0),
       insetPadding: const EdgeInsets.all(0),
       child: SizedBox(
         child: Container(
@@ -41,7 +41,7 @@ class PartTopOfDialog extends StatelessWidget {
       height: 123,
       width: double.maxFinite,
       decoration: BoxDecoration(
-          color: AppColors.bgGrandentTop.withOpacity(0.02),
+          color: AppColors.bgGrandentTop.withValues(alpha:0.02),
           borderRadius: const BorderRadius.vertical(bottom: Radius.circular(6))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

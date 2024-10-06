@@ -27,7 +27,7 @@ class BgDrawer extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [AppColors.bgGrandentTop.withOpacity(0.03), AppColors.bgGrandentDown.withOpacity(0.03)]),
+              colors: [AppColors.bgGrandentTop.withValues(alpha:0.03), AppColors.bgGrandentDown.withValues(alpha:0.03)]),
           image: DecorationImage(image: AssetImage(AppImages.bgDrawer), fit: BoxFit.cover)),
     );
   }
@@ -39,7 +39,7 @@ class BgDrawer extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
         const Color(0xffffffff),
-        AppColors.filterColor.withOpacity(0.0),
+        AppColors.filterColor.withValues(alpha:0.0),
       ])),
     );
   }
