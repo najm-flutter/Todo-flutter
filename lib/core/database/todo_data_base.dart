@@ -1,4 +1,4 @@
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:path/path.dart';
 import 'package:todo/features/todo/data/models/todo_model.dart';
 
@@ -12,6 +12,12 @@ const String time = "time";
 
 class TodoDataBase {
   static Database? _db;
+
+  TodoDataBase() {
+    // Initialize the database factory for FFI
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
 
   Future<Database?> get db async {
     if (_db == null) {
@@ -31,15 +37,15 @@ class TodoDataBase {
 
   _onCraete(Database database, int version) {
     database.execute('''
- CREATE TABLE todo (
-     id INTEGER PRIMARY KEY AUTOINCREMENT,
-     iconId INTEGER,
-     isDone INTEGER,
-     title TEXT,
-     description TEXT,
-     time TEXT
- )
-''');
+     CREATE TABLE todo (
+         id INTEGER PRIMARY KEY AUTOINCREMENT,
+         iconId INTEGER,
+         isDone INTEGER,
+         title TEXT,
+         description TEXT,
+         time TEXT
+     )
+    ''');
   }
 
   Future<int> insertTodo(TodoModel todoModel) async {
@@ -62,8 +68,6 @@ class TodoDataBase {
 
   Future<List> getNotDoneTodo() async {
     Database? database = await db;
-    // List status = await database!
-    //     .query(todo, columns: [id, iconId, isDone, title, description, time], where: '$isDone = ?', whereArgs: [0]);
     List status = await database!.rawQuery('SELECT * FROM $todo WHERE $isDone = 0  ORDER BY $id DESC');
     return status;
   }
