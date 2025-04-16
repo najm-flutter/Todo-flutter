@@ -44,7 +44,7 @@ class IconWidget extends StatelessWidget {
       height: 32,
       width: 32,
       child: CircleAvatar(
-        backgroundColor: StaticData.colorsStatusImage[index].colorStatus.withOpacity(0.12),
+        backgroundColor: StaticData.colorsStatusImage[index].colorStatus.withValues(alpha: 0.12),
       ),
     );
   }

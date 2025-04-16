@@ -41,7 +41,7 @@ class MainBottomBar extends StatelessWidget {
       width: 56,
       decoration: BoxDecoration(
         color: AppColors.white,
-        boxShadow: [BoxShadow(color: AppColors.other.withOpacity(0.2), blurRadius: 6, offset: const Offset(0, 4))],
+        boxShadow: [BoxShadow(color: AppColors.other.withValues(alpha: 0.2), blurRadius: 6, offset: const Offset(0, 4))],
         shape: BoxShape.circle,
       ),
       child: Center(

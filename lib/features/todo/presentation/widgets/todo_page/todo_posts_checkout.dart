@@ -21,10 +21,10 @@ class TodoPostsCheckout extends StatelessWidget {
           decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: AppColors.bgGrandentTop.withOpacity(0.2)),
+              border: Border.all(color: AppColors.bgGrandentTop.withValues(alpha: 0.2)),
               boxShadow: [
                 BoxShadow(
-                    color: AppColors.iconDoneBgGrandentTop.withOpacity(0.1), blurRadius: 4, offset: const Offset(0, 2)),
+                    color: AppColors.iconDoneBgGrandentTop.withValues(alpha: 0.1), blurRadius: 4, offset: const Offset(0, 2)),
               ]),
           child: _checkIcon(),
         ),
@@ -41,7 +41,7 @@ class TodoPostsCheckout extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           gradient: LinearGradient(colors: [
-            AppColors.white.withOpacity(0),
+            AppColors.white.withValues(alpha: 0),
             AppColors.white,
           ])),
       child: widget,

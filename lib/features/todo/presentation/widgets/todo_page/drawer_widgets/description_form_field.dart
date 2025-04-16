@@ -15,10 +15,10 @@ class DescriptionFormField extends StatelessWidget {
         controller: textEditingController,
         style: TextStyle(fontSize: 14, color: AppColors.bgGrandentTop),
         cursorHeight: 20,
-        cursorColor: AppColors.bgGrandentTop.withOpacity(0.4),
+        cursorColor: AppColors.bgGrandentTop.withValues(alpha:0.4),
         decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.white.withOpacity(0.8),
+            fillColor: AppColors.white.withValues(alpha:0.8),
             contentPadding: const EdgeInsets.all(7),
             isDense: true,
             hintText: 'Add description for you to do',
@@ -26,10 +26,10 @@ class DescriptionFormField extends StatelessWidget {
             border: const OutlineInputBorder(),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(color: AppColors.bgGrandentTop.withOpacity(0.2))),
+                borderSide: BorderSide(color: AppColors.bgGrandentTop.withValues(alpha:0.2))),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(color: AppColors.bgGrandentTop.withOpacity(0.2)))),
+                borderSide: BorderSide(color: AppColors.bgGrandentTop.withValues(alpha:0.2)))),
       ),
     );
   }

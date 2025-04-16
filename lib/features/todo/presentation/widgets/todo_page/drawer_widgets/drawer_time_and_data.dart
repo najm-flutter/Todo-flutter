@@ -15,7 +15,7 @@ class DrawerTimeAndData extends StatelessWidget {
         // ignore: avoid_unnecessary_containers
         childWidget: Container(
           child: InkWell(
-            splashColor: AppColors.white.withOpacity(0),
+            splashColor: AppColors.white.withValues(alpha:0),
             onTap: onTapIcon,
             child: Column(
               children: [
@@ -25,7 +25,7 @@ class DrawerTimeAndData extends StatelessWidget {
                 ),
                 Divider(
                   thickness: 1,
-                  color: AppColors.bgGrandentTop.withOpacity(0.12),
+                  color: AppColors.bgGrandentTop.withValues(alpha:0.12),
                 )
               ],
             ),

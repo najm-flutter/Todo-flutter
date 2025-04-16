@@ -13,16 +13,16 @@ class NameFormField extends StatelessWidget {
         controller: textEditingController,
         style: TextStyle(fontSize: 14, color: AppColors.bgGrandentTop),
         cursorHeight: 20,
-        cursorColor: AppColors.bgGrandentTop.withOpacity(0.4),
+        cursorColor: AppColors.bgGrandentTop.withValues(alpha: 0.4),
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 3, bottom: 7),
             isDense: true,
             hintText: 'Add name for you to do',
             hintStyle: const TextStyle(fontSize: 12),
             enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.bgGrandentDown.withOpacity(0.3), width: 1)),
+                borderSide: BorderSide(color: AppColors.bgGrandentDown.withValues(alpha: 0.3), width: 1)),
             focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.bgGrandentDown.withOpacity(0.5), width: 1.5))),
+                borderSide: BorderSide(color: AppColors.bgGrandentDown.withValues(alpha: 0.5), width: 1.5))),
       ),
     );
   }
